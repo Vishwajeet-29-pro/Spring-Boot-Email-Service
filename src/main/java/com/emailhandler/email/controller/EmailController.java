@@ -56,8 +56,8 @@ public class EmailController {
 	
 	@GetMapping("/sendToMany")
 	public String getFormForManyMailId(Model model) {
-		model.addAttribute("sendMany", new Email());
-		return "send-many";
+		model.addAttribute("email", new Email());
+		return "email-recipients";
 	}
 	
 	@PostMapping("/save")
@@ -108,12 +108,12 @@ public class EmailController {
 	}
 	
 	@PostMapping("/sendMany")
-	public String saveMany(@ModelAttribute Email email,
-							List<String> emails,
+	public String saveMany(@ModelAttribute("email") Email email,
+							@RequestParam("emails") List<String> emails,
 							BindingResult bindingResult,
 							RedirectAttributes redirectAttributes) throws MessagingException {
 		if(bindingResult.hasErrors()) {
-			return "email-form";
+			return "email-recipients";
 		}
 		boolean sent = emailService.sendEmailToMany(emails, email);
 		if(sent) {

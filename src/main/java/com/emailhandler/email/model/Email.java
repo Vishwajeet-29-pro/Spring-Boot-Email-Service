@@ -1,5 +1,7 @@
 package com.emailhandler.email.model;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class Email {
@@ -9,6 +11,7 @@ public class Email {
 	    private String text;
 	    private String cc;
 	    private String bcc;
+	    private List<String> emails;
 	    private MultipartFile[] attachments;
 	    
 	    
@@ -49,6 +52,12 @@ public class Email {
 		}
 		public void setAttachments(MultipartFile[] attachments) {
 			this.attachments = attachments;
+		}
+		public List<String> getEmails() {
+			return emails;
+		}
+		public void setEmails(List<String> emails) {
+			this.emails = emails;
 		}
 
 	    

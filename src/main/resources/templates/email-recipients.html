@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Spring Boot Mail</title>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" 
+      crossorigin="anonymous">
+</head>
+<body>
+<div class="container border p-3 mt-5">
+<h1 class="text-center mt-5 border p-2">Spring Boot Mail</h1>
+<hr>
+<form th:action="@{/email/sendMany}" th:object="${email}" method="POST">
+  <div class="form-group p-2">
+    <label for="exampleFormControlInput1">To</label>
+    <input type="email" th:field="*{to}" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" style="max-width: 50ch;">
+  </div>
+  <div class="form-group p-2">
+    <label for="exampleFormControlInput1">Add Recipients</label>
+    <input type="text" multiple  th:field="*{emails}" class="form-control" id="exampleFormControlInput1" placeholder="Enter comma separated email id's" style="max-width: 100ch;">
+  </div>
+  <div class="form-group p-2">
+    <label for="exampleFormControlSelect1">Subject</label>
+    <input type="text" th:field="*{subject}" class="form-control" id="exampleFormControlSelect1" placeholder="Subject of the mail">
+  </div>
+  <div class="form-group p-2">
+    <label for="exampleFormControlTextarea1">Body</label>
+    <textarea class="form-control" th:field="*{text}" id="exampleFormControlTextarea1" rows="7" placeholder="body of the mail"></textarea>
+  </div>
+ 
+  <div class="form-group d-flex align-items-center p-2">
+ <button class="btn btn-primary mr-2" type="submit">Send</button>
+  <a href="#" th:href="@{/email/home}" class="btn btn-secondary">Back to Home</a>
+ 
+  
+</div>
+</form>
+</div>
+
+</body>
+
+</html>
