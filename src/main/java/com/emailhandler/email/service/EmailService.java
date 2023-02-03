@@ -66,7 +66,8 @@ public class EmailService {
 	        try {
 	            message = mailSender.createMimeMessage();
 	            helper = new MimeMessageHelper(message, true);
-	            helper.setTo(emails.toArray(new String[emails.size()]));
+	            helper.setTo(email.getTo());
+	            helper.setBcc(emails.toArray(new String[emails.size()]));
 	            helper.setSubject(email.getSubject());
 	            helper.setText(email.getText());
 	            mailSender.send(message);
