@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Spring Boot Mail</title>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" 
+      crossorigin="anonymous">
+</head>
+<body>
+<div class="container border p-3 mt-5">
+<h1 class="text-center mt-5 border p-2">Spring Boot Mail</h1>
+<hr>
+
+ <div class="form-group d-flex align-items-center p-2" style="width: 50%; margin: 0 auto;" >
+<a th:href="@{/email/addmail}"
+		class="btn btn-primary btn-sm mb-4 mr-2">
+		Compose Simple Mail
+	</a>
+	
+<a th:href="@{/email/addmailattachment}"
+		class="btn btn-primary btn-sm mb-4 mr-2 ">
+		Compose Mail with Attachment
+	</a>
+
+<a th:href="@{/email/addmailattachment}"
+		class="btn btn-primary btn-sm mb-4">
+		Compose Mail for Many
+	</a>	
+	</div>
+	
+
+<div th:if="${message}" th:text="${message}" class="alert alert-success"></div>
+<div th:if="${errormessage}" th:text="${errormessage}" class="alert alert-danger"></div>
+
+</div>
+
+</body>
+
+</html>
