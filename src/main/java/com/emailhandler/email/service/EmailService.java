@@ -19,22 +19,6 @@ import jakarta.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-//	@Autowired
-//	private JavaMailSender javaMailSender;
-//
-//	
-//	public boolean sendEmail(String to, String subject, String text) throws MessagingException, IOException {
-//
-//		SimpleMailMessage msg = new SimpleMailMessage();
-//		msg.setTo(to);
-//
-//		msg.setSubject(subject);
-//		msg.setText(text);
-//
-//		javaMailSender.send(msg);
-//		return "";
-//
-//	}
 	 private static final Logger log = LoggerFactory.getLogger(EmailService.class);
 	 private final JavaMailSender mailSender;
 	 private MimeMessage message;
