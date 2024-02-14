@@ -96,7 +96,7 @@ public class EmailController {
 			return "email-attachment";
 		}
 		
-		boolean sent = emailService.sendEmailWithAttactment(email, file);
+		boolean sent = emailService.sendEmailWithAttachment(email, file);
 		if(sent) {
 			System.err.println("success");
 			redirectAttributes.addFlashAttribute("message", "Email send successfully");
